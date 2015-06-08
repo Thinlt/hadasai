@@ -6,6 +6,10 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'YKeZLTdwWmYAqwz-Oj_Xs19rfHmDdbRA',
         ],
+        'db'=>require(__DIR__ . '/db.php'),
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+        ],
     ],
 ];
 
