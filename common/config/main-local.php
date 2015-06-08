@@ -2,10 +2,11 @@
 return [
     'components' => [
         'db' => [
+
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=yii2advanced',
+            'dsn' => 'mysql:host=localhost;dbname=findnex',
             'username' => 'root',
-            'password' => '',
+            'password' => 'admin123',
             'charset' => 'utf8',
         ],
         'mailer' => [
@@ -15,6 +16,9 @@ return [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
         ],
     ],
 ];
