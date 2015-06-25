@@ -30,7 +30,11 @@ class CategoryController extends Controller {
                     'keyword' => $keyword,
         ]);
     }
-    
+
+    /**
+     * Create category
+     * @return string|\yii\web\Response
+     */
     public function actionCreate() {
         $error = '';
         $model = new Category();
@@ -50,21 +54,12 @@ class CategoryController extends Controller {
         return $this->render('create',['error' => $error]);
     }
     
-    public function actionDetail() {
-        $id = Yii::$app->request->get('id', 0);
-
-        $customer = new \app\models\Customer;
-        $user = $customer->getCustomerById($id);
-
-        return $this->render('detail', ['user' => $user]);
-    }
 
     /**
-     * Deletes an existing User model.
+     *  Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @param integer $create_date
-     * @return mixed
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException
      */
     public function actionDelete()
     {
@@ -79,7 +74,7 @@ class CategoryController extends Controller {
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
      * @param integer $create_date
-     * @return GwTransactionLog the loaded model
+     * @return Category the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
